@@ -9,8 +9,8 @@ fun CoinDto.toCoin(): Coin {
         name = name,
         rank = rank,
         symbol =  symbol,
-        marketCapInr = marketCapInr,
-        priceInr =  priceInr,
-        changePercent24Hrs =  changePercent24Hrs
+        marketCapUsd = marketCapUsd,
+        priceUsd =  priceUsd,
+        changePercent24Hr =  changePercent24Hr
     )
 }

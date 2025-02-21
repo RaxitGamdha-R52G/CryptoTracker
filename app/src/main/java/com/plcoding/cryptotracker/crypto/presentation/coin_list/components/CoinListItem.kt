@@ -74,7 +74,7 @@ fun CoinListItem(
             horizontalAlignment = Alignment.End
         ) {
             Text(
-                text = "₹ ${coinUi.priceInr.formatted}",
+                text = "₹ ${coinUi.priceUsd.formatted}",
                 fontSize = 16.sp,
                 fontWeight = FontWeight.SemiBold,
                 color = contentColor
@@ -82,7 +82,7 @@ fun CoinListItem(
             )
             Spacer(modifier = Modifier.height(8.dp))
             PriceChange(
-                change = coinUi.changePercent24Hrs
+                change = coinUi.changePercent24Hr
             )
         }
     }
@@ -108,7 +108,7 @@ internal val previewCoin = Coin(
     rank = 1,
     name = "Bitcoin",
     symbol = "BTC",
-    marketCapInr = 169105126069808.28,
-    priceInr = 8492390.93,
-    changePercent24Hrs = 0.1,
+    marketCapUsd = 169105126069808.28,
+    priceUsd = 8492390.93,
+    changePercent24Hr = 0.1,
 ).toCoinUi()
