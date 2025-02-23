@@ -32,9 +32,13 @@ class CoinListViewModel(
     private val _events = Channel<CoinListEvent>()
     val events = _events.receiveAsFlow()
 
-    fun OnAction(action: CoinListAction) {
+    fun onAction(action: CoinListAction) {
         when (action) {
-            is CoinListAction.OnCoinClick -> TODO()
+            is CoinListAction.OnCoinClick -> {
+                _state.update { it.copy(
+                    selectedCoin = action.coinUi
+                ) }
+            }
 //            CoinListAction.OnRefresh -> {
 //                loadCoins()
 //            }
