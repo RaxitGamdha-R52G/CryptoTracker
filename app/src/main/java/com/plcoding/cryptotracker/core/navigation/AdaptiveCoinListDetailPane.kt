@@ -3,7 +3,6 @@ package com.plcoding.cryptotracker.core.navigation
 import android.widget.Toast
 import androidx.compose.material3.adaptive.ExperimentalMaterial3AdaptiveApi
 import androidx.compose.material3.adaptive.layout.AnimatedPane
-import androidx.compose.material3.adaptive.layout.ListDetailPaneScaffold
 import androidx.compose.material3.adaptive.layout.ListDetailPaneScaffoldRole
 import androidx.compose.material3.adaptive.navigation.NavigableListDetailPaneScaffold
 import androidx.compose.material3.adaptive.navigation.rememberListDetailPaneScaffoldNavigator
@@ -23,10 +22,7 @@ import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalMaterial3AdaptiveApi::class)
 @Composable
-fun AdaptiveCOinListDetailPane(
-    viewModel: CoinListViewModel = koinViewModel(),
-    modifier: Modifier = Modifier
-) {
+fun AdaptiveCOinListDetailPane(modifier: Modifier = Modifier, viewModel: CoinListViewModel = koinViewModel()) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val context = LocalContext.current
     ObserverAsEvents(events = viewModel.events) { event ->
@@ -51,7 +47,7 @@ fun AdaptiveCOinListDetailPane(
                     state = state,
                     onAction = { action ->
                         viewModel.onAction(action)
-                        when(action){
+                        when (action) {
                             is CoinListAction.OnCoinClick -> {
                                 navigator.navigateTo(pane = ListDetailPaneScaffoldRole.Detail)
                             }
